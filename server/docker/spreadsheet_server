@@ -1,0 +1,6 @@
+#! /bin/bash
+#* Just calls the seerver in wahtever location we install it in.
+
+chmod +x /server/build/bin/spreadsheet_server
+
+/server/build/bin/spreadsheet_server 1100
