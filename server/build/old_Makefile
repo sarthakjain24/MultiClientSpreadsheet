@@ -1,0 +1,26 @@
+#* Makefile for cs3505 spreadsheet server
+#* author: Andrew Osterhout
+
+#? compiler to use for all build/compile tasks
+CC:=g++
+#? compiler arguments/flags for all build/compile tasks
+CFLAGS:=-std=c++11 -O2 -Wall
+#? compiler arguments/flags for all build/compile tasks where debug things are needed
+DEBUG_CFLAGS:=-std=c++11 -O2 -Wall -g
+#? lib directory for locally stored libraries
+LIB_DIR:=./lib
+#? list of libs to include for build tasks (must have -I option for each library and "" if spaces in path)
+LIBS:=-I $(LIB_DIR)/nlohmann-json #TODO add bost lib dir if needed
+#? object directory (where intermediate .o files should be stored during build)
+OBJ_DIR:=./build
+#? final executable out directory 
+BIN_DIR:=./bin
+#? requisite source files for building (fetched from search of ./src directory)
+CPP_FILES:=$(shell find . -name "*.cpp")
+#? requisite headerfiles for checking if build is up to date (fetched from search of ./src directory)
+HPP_FILES:=$(shell find . -name "*.hpp")
+#? requisite common files (generated from string manipulation of .cpp files)
+OBJS:=$(patsubst %.cpp, %.o, $(CPP_FILES))
+
+
+
