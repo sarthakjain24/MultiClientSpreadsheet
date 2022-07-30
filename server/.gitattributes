@@ -1,0 +1,31 @@
+# =====================================
+#       git attributes/properties
+# =====================================
+
+#? since we will all be sharing this repo and be coding cross platform,
+#?  cross-platform-remote (i.e. into a docker container) 
+#?  and end-of-line (eol) endings can be an issue in docker, 
+#? This should ensure that we consistantly commit lf (unix style eol)
+#?  and not crlf (win style eol) with git.
+
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text eol=lf
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.c text
+*.h text
+
+# Declare files that will always have CRLF line endings on checkout.
+# msbuild/vs `.sln` files are required to ues crlf but everything else should be fine with just lf
+*.sln text eol=crlf 
+
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.o binary
+*.out binary
+*.exe binary
+*.dll binary
+*.lib binary
